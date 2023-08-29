@@ -9,5 +9,5 @@ someinternalhost_IP = 10.128.0.34
 HW4
 Содана ВМ
 Развернуты ruby mongodb и произведен деплой приложения
-testapp_IP = 158.160.109.131
+testapp_IP = 51.250.67.144
 testapp_port = 9292
