@@ -7,9 +7,11 @@
             "source_image_family": "{{ user `source_image_family`}}",
             "image_name": "reddit-base-{{timestamp}}",
             "image_family": "reddit-base",
+            "ssh_username": "ubuntu",
             "use_ipv4_nat": "true",
-            "ssh_username": "{{ user `disk_name` }}",
-            "platform_id": "{{ user `disk_size_gb` }}"
+            "platform_id": "standard-v1",
+            "disk_name": "{{ user `disk_name` }}",
+            "disk_size_gb": "{{ user `disk_size_gb` }}"
         }
     ],
      "provisioners": [
