@@ -18,9 +18,7 @@
     "provisioners": [
         {
             "type": "ansible",
-            "playbook_file": "ansible/packer_app.yml",
-            "ansible_ssh_extra_args": ["-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedKeyTypes=+ssh-rsa -o IdentitiesOnly=yes"],
-            "extra_arguments": [ "--scp-extra-args", "'-O'" ]
+            "playbook_file": "ansible/packer_app.yml"
         }
     ]
 }
