@@ -4,19 +4,19 @@
   debug:
     msg: "This host is in {{ env }} environment!!!"
 - name: Add unit file for Puma
-  ansible.builtin.copy:
+  copy:
     src: puma.service
     dest: /etc/systemd/system/puma.service
     mode: preserve
   notify: Restart puma
 
 - name: Add config for DB connection
-  ansible.builtin.template:
+  template:
     src: db_config.j2
     dest: /home/ubuntu/db_config
     mode: preserve
 
 - name: Enable puma
-  ansible.builtin.systemd:
+  systemd:
     name: puma
     enabled: true
