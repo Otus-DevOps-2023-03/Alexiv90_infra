@@ -2,7 +2,7 @@
   hosts: app
   tasks:
     - name: Clone repo
-      ansible.builtin.git:
+      git:
         repo: https://github.com/express42/reddit.git
         version: monolith # <-- Указываем нужную ветку
         dest: /home/ubuntu/reddit
