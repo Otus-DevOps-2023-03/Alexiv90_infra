@@ -1,0 +1,9 @@
+---
+- name: Import db playbook
+  import_playbook: db.yml
+- name: Import app playbook
+  import_playbook: app.yml
+- name: Import deploy playbook
+  import_playbook: deploy.yml
+- name: Import users playbook
+  import_playbook: users.yml

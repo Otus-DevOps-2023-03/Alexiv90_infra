@@ -1,0 +1,7 @@
+{
+    "folder_id": "b1gk63ipniaqhnvrgv07",
+    "source_image_family": "ubuntu-1604-lts",
+    "service_account_key_file": "packer/key.json.examples",
+    "disk_name": "reddit-app",
+    "disk_size_gb": "10"
+  }
