@@ -7,7 +7,7 @@
     mongo_bind_ip: 0.0.0.0
   tasks:
     - name: Change mongo config file
-      template:
+      ansible.builtin.template:
         src: templates/mongod.conf.j2
         dest: /etc/mongod.conf
         mode: "0644"
@@ -15,7 +15,7 @@
 
   handlers: # <-- Добавим блок handlers и задачу
     - name: Restart mongod
-      service:
+      ansible.builtin.service:
         name: mongod
         state: restarted
 
@@ -27,26 +27,26 @@
     db_host: 158.160.115.131
   tasks:
     - name: Add unit file for Puma
-      copy:
+      ansible.builtin.copy:
         src: files/puma.service
         dest: /etc/systemd/system/puma.service
         mode: preserve
       notify: Restart puma
 
     - name: Add config for DB connection
-      template:
+      ansible.builtin.template:
         src: templates/db_config.j2
         dest: /home/ubuntu/db_config
         mode: preserve
 
     - name: Enable puma
-      systemd:
+      ansible.builtin.systemd:
         name: puma
         enabled: true
 
   handlers: # <-- Добавим блок handlers и задачу
     - name: Restart puma
-      service:
+      ansible.builtin.service:
         name: puma
         state: restarted
 
@@ -57,19 +57,19 @@
   become: true
   tasks:
     - name: Fetch the latest version of application code
-      git:
+      ansible.builtin.git:
         repo: 'https://github.com/express42/reddit.git'
         dest: /home/ubuntu/reddit
         version: monolith # <-- Указываем нужную ветку
       notify: Restart puma
 
     - name: Bundle install
-      bundler:
+      ansible.builtin.bundler:
         state: present
         chdir: /home/ubuntu/reddit
 
   handlers: # <-- Добавим блок handlers и задачу
     - name: Restart puma
-      service:
+      ansible.builtin.service:
         name: puma
         state: restarted
