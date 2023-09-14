@@ -1,5 +1,9 @@
 ---
-- import_playbook: db.yml
-- import_playbook: app.yml
-- import_playbook: deploy.yml
-- import_playbook: users.yml
+- name: Import db playbook
+  ansible.builtin.import_playbook: db.yml
+- name: Import app playbook
+  ansible.builtin.import_playbook: app.yml
+- name: Import deploy playbook
+  ansible.builtin.import_playbook: deploy.yml
+- name: Import users playbook
+  ansible.builtin.import_playbook: users.yml

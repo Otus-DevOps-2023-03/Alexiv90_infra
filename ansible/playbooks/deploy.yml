@@ -10,7 +10,7 @@
       notify: Restart puma
 
     - name: Bundle install
-      ansible.builtin.bundler:
+      community.general.bundler:
         state: present
         chdir: /home/ubuntu/reddit
 
